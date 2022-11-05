@@ -1,0 +1,50 @@
+<mat-card >
+  <mat-toolbar color="primary">Cadastrar Cliente</mat-toolbar>
+
+  <mat-card-content>
+    <form [formGroup]="form" class="min-width">
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Nome" formControlName="name" #name />
+        <mat-hint align="end">{{ name.value?.length || 0 }} / 100</mat-hint>
+        <mat-error *ngIf="form.get('name')?.invalid">{{
+          getErrorMessage("name")
+        }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Documento (CPF/CNPJ)" formControlName="document" #document>
+        <mat-error *ngIf="form.get('document')?.invalid">{{
+          getErrorMessage("document")
+        }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field   class="full-width">
+        <input matInput placeholder="Endereço" formControlName="address" #address>
+        <mat-error *ngIf="form.get('address')?.invalid">{{
+          getErrorMessage("address")
+        }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Latitude" formControlName="latitude" #latitude>
+        <mat-error *ngIf="form.get('latitude')?.invalid">{{
+          getErrorMessage("latitude")
+        }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Longitude" formControlName="longitude" #longitude>
+        <mat-error *ngIf="form.get('longitude')?.invalid">{{
+          getErrorMessage("longitude")
+        }}</mat-error>
+      </mat-form-field>
+
+    </form>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
+    <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+  </mat-card-actions>
+</mat-card>

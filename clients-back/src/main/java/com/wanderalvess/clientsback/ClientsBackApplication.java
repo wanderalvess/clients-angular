@@ -22,11 +22,11 @@ public class ClientsBackApplication {
 
 			Client c = new Client();
 
-			c.setCode("1");
 			c.setName("João");
 			c.setDocument("11.111.111/0001-11");
-			c.setLatitude("11.111.111");
-			c.setLongitude("11.111.111");
+			c.setAddress("Av. 136");
+			c.setLatitude("-16.700884642335396");
+			c.setLongitude("-49.25342831243458");
 
 			clientRepository.save(c);
 
