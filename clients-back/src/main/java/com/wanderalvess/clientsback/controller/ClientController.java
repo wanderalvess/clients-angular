@@ -1,24 +1,26 @@
 package com.wanderalvess.clientsback.controller;
 
 import com.wanderalvess.clientsback.model.Client;
+import com.wanderalvess.clientsback.repository.ClientRepository;
 import com.wanderalvess.clientsback.service.ClientService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/clients")
 public class ClientController {
 
-    private final ClientService clientService;
+    @Autowired
+    private final ClientRepository clientRepository;
 
-    public ClientController(ClientService clientService) {
-        this.clientService = clientService;
+    public ClientController(ClientRepository clientRepository) {
+        this.clientRepository = clientRepository;
     }
 
-    @PostMapping("/save")
-    public Client save(@RequestBody Client client) {
-        return clientService.save(client);
+    @GetMapping
+    public List<Client> list(){
+        return clientRepository.findAll();
     }
 }
