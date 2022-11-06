@@ -9,14 +9,12 @@ import { ErrorDialogComponent } from '../../../shared/components/error-dialog/er
 import { Client } from '../../model/client';
 import { ClientsService } from '../../services/clients.service';
 
-
 @Component({
   selector: 'app-clients',
   templateUrl: './clients.component.html',
-  styleUrls: ['./clients.component.scss']
+  styleUrls: ['./clients.component.scss'],
 })
 export class ClientsComponent implements OnInit {
-
   clients$: Observable<Client[]> | null = null;
 
   constructor(
@@ -25,40 +23,38 @@ export class ClientsComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private snackBar: MatSnackBar
-    ) {
-      this.refresh();
-    }
+  ) {
+    this.refresh();
+  }
 
   refresh() {
-    this.clients$ = this.clientsService.list()
-      .pipe(
-        catchError(error => {
-          this.onError('Erro ao carregar cursos.');
-          return of([])
-        })
-      );
+    this.clients$ = this.clientsService.list().pipe(
+      catchError((error) => {
+        this.onError('Erro ao carregar clientes.');
+        return of([]);
+      })
+    );
   }
 
   onError(erroMsg: string) {
     this.dialog.open(ErrorDialogComponent, {
-      data: erroMsg
+      data: erroMsg,
     });
   }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onAdd() {
-    this.router.navigate(['new'], {relativeTo: this.route})
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   onEdit(client: Client) {
-    this.router.navigate(['edit', client._id], {relativeTo: this.route})
+    this.router.navigate(['edit', client._id], { relativeTo: this.route });
   }
 
   onRemove(client: Client) {
     const dialogRef = this.dialog.open(ConfirmationDialogComponent, {
-      data: 'Tem certeza que deseja remover esse curso?',
+      data: 'Tem certeza que deseja remover esse cliente?',
     });
 
     dialogRef.afterClosed().subscribe((result: boolean) => {
@@ -69,10 +65,10 @@ export class ClientsComponent implements OnInit {
             this.snackBar.open('Cliente removido com sucesso!', 'X', {
               duration: 5000,
               verticalPosition: 'top',
-              horizontalPosition: 'center'
+              horizontalPosition: 'center',
             });
           },
-          () => this.onError('Erro ao tentar remover curso.')
+          () => this.onError('Erro ao tentar remover cliente.')
         );
       }
     });

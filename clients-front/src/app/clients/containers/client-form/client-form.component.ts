@@ -58,6 +58,16 @@ export class ClientFormComponent implements OnInit {
     });
   }
 
+  lat = '-49.257813';
+  lng = '-49.257813';
+  map = null;
+
+  public recentralizarMapa(client: Client) {
+
+    this.lat = client.latitude;
+    this.lng = client.longitude;
+  }
+
   onSubmit() {
     this.service.save(this.form.value)
     .subscribe(result => this.onSucess(), error => this.onError());
