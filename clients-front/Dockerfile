@@ -2,7 +2,7 @@ FROM node:lts-alpine as angular
 ENV NODE_ENV=production
 WORKDIR /app
 COPY package.json /app
-RUN npm install
+RUN npm install --silent
 COPY . .
 RUN npm run build
 
