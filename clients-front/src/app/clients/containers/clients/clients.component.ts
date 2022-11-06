@@ -1,5 +1,4 @@
-import { MatPaginator } from '@angular/material/paginator';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -29,7 +28,6 @@ export class ClientsComponent implements OnInit {
     ) {
       this.refresh();
     }
-
 
   refresh() {
     this.clients$ = this.clientsService.list()

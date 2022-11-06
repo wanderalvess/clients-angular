@@ -2,7 +2,6 @@ package com.wanderalvess.clientsback.controller;
 
 import com.wanderalvess.clientsback.model.Client;
 import com.wanderalvess.clientsback.repository.ClientRepository;
-import com.wanderalvess.clientsback.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -2,13 +2,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Client } from '../../model/client';
 
+
 @Component({
   selector: 'app-clients-list',
   templateUrl: './clients-list.component.html',
   styleUrls: ['./clients-list.component.scss']
 
 })
-export class ClientsListComponent implements OnInit {
+export class ClientsListComponent implements OnInit  {
 
   @Input() clients: Client[] = []
   @Output() add = new EventEmitter(false);
@@ -18,7 +19,7 @@ export class ClientsListComponent implements OnInit {
   displayedColumns = [ '_id','name','document','address','latitude','longitude', 'actions' ]
 
   constructor() { }
-  
+
   ngOnInit(): void {
   }
 
