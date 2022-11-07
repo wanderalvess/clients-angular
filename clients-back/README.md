@@ -20,7 +20,7 @@ Build TomCat
 - ***Executar metódo principal (main)***
 	- maven clean install
     - executar ou depurar
-    - Tomcat será iniciado na porta: 8080 (http)
+    - Tomcat será iniciado no caminho: http://localhost:8080/api/clients (http)
 
 
 Serviços API
