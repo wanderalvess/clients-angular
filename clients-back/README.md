@@ -3,7 +3,7 @@ Projeto consulta e cadastro de Clientes Back
 
 ### ***Informações Sobre o Projeto:***
 
-- Esse projeto foi feito com Java, SpringBot, Maven e criado os container com docker.
+- Esse projeto foi feito com Java, SpringBot, Maven e criado o container com docker.
 - ***Versões:***
 	- Java: 11.0.9
 	- Apache Maven: 3.8.6
