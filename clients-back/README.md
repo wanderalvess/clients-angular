@@ -1,14 +1,39 @@
-ServiÁo consulta e cadastro de Clientes
+Projeto consulta e cadastro de Clientes
+======
+
+### ***Informa√ß√µes Sobre o Projeto:***
+
+- Esse projeto foi feito com Java, SpringBot, Maven e criado os container com docker.
+- ***Vers√µes:***
+	- Java: 11.0.9
+	- Apache Maven: 3.8.6
+	- SpringBot: 2.7.5
+
+Build Docker
+======
+- ***Criar imagem e executar***
+	- docker build -t wanderalvess/clients-back:1.0.0 .
+	- docker run -p 8080:8080 wanderalvess/clients-back:1.0.0
+
+Build TomCat
+======
+- ***Executar met√≥do principal (main)***
+	- maven clean install
+    - executar ou depurar
+    - Tomcat ser√° iniciado na porta: 8080 (http)
+
+
+Servi√ßos API
 ======
 
 
-### ServiÁos DisponÌveis:
+### Servi√ßos Dispon√≠veis:
 
 ### 1) ***Consulta de todos clientes cadastrados***
-   - Nessa consulta, basta apenas fazer a requisiÁ„o da url.
+   - Nessa consulta, basta apenas fazer a requisi√ß√£o da url.
 
 
-- ***MÈtodo:*** GET
+- ***M√©todo:*** GET
 
 
 - ***Url:*** `http://localhost:8080/api/clients`
@@ -19,7 +44,7 @@ ServiÁo consulta e cadastro de Clientes
 
 - ***Retorno:*** 
 				{
-					"name": "Jo„o",
+					"name": "Jo√£o",
 					"document": "11.111.111/0001-11",
 					"address": "Av. 136",
 					"latitude": "-16.700884642335396",
@@ -32,7 +57,7 @@ ServiÁo consulta e cadastro de Clientes
    - Nessa consulta, basta apenas passar o id do cliente na url.
 
 
-- ***MÈtodo:*** GET
+- ***M√©todo:*** GET
 
 
 - ***Url:*** `http://localhost:8080/api/clients/{id}`
@@ -43,7 +68,7 @@ ServiÁo consulta e cadastro de Clientes
 
 - ***Retorno:*** 
 				{
-					"name": "Jo„o",
+					"name": "Jo√£o",
 					"document": "11.111.111/0001-11",
 					"address": "Av. 136",
 					"latitude": "-16.700884642335396",
@@ -53,21 +78,21 @@ ServiÁo consulta e cadastro de Clientes
 
 
 ### 3) ***Cadastro de clientes***
-   - Nesse serviÁo, È preciso informar todos os dados do cliente no corpo da requisiÁ„o para o cadastro. … utilizado o mÈtodo POST.
+   - Nesse servi√ßo, √© preciso informar todos os dados do cliente no corpo da requisi√ß√£o para o cadastro. √â utilizado o m√©todo POST.
 
 
-- ***MÈtodo:*** POST
+- ***M√©todo:*** POST
 
 
 - ***Url:*** `http://localhost:8080/api/clients`
 
-- ***Par‚metros:*** 
+- ***Par√¢metros:*** 
 
   - **name:** Nome do Contribuinte
   - **document:** O documento pode ser informado o CNPJ ou CPF do cliente
-  - **address:** Nesse parametro È informado o endereÁo do cliente
-  - **latitude:** … informado a latitude do endereÁo do cliente
-  - **longitude:** … informado a longitude do endereÁo do cliente
+  - **address:** Nesse parametro √© informado o endere√ßo do cliente
+  - **latitude:** √â informado a latitude do endere√ßo do cliente
+  - **longitude:** √â informado a longitude do endere√ßo do cliente
 
 
 - ***Exemplo:*** 
@@ -90,22 +115,22 @@ ServiÁo consulta e cadastro de Clientes
 					"_id": 3
 				}
 
-### 4) ***AtualizaÁ„o de clientes***
-   - Nesse serviÁo, ser· feito a atualizaÁ„o dos dados do cliente, È preciso informar as alteraÁıes do cliente no corpo da requisiÁ„o para o cadastro.
+### 4) ***Atualiza√ß√£o de clientes***
+   - Nesse servi√ßo, ser√° feito a atualiza√ß√£o dos dados do cliente, √© preciso informar as altera√ß√µes do cliente no corpo da requisi√ß√£o para o cadastro.
 
 
-- ***MÈtodo:*** PUT
+- ***M√©todo:*** PUT
 
 
 - ***Url:*** `http://localhost:8080/api/clients/{id}`
 
-- ***Par‚metros:*** 
+- ***Par√¢metros:*** 
 
   - **name:** Nome do Contribuinte
   - **document:** O documento pode ser informado o CNPJ ou CPF do cliente
-  - **address:** Nesse parametro È informado o endereÁo do cliente
-  - **latitude:** … informado a latitude do endereÁo do cliente
-  - **longitude:** … informado a longitude do endereÁo do cliente
+  - **address:** Nesse parametro √© informado o endere√ßo do cliente
+  - **latitude:** √â informado a latitude do endere√ßo do cliente
+  - **longitude:** √â informado a longitude do endere√ßo do cliente
 
 
 - ***Exemplo:*** 
@@ -128,11 +153,11 @@ ServiÁo consulta e cadastro de Clientes
 					"_id":3
 				}
 
-### 5) ***Exclus„o de clientes***
-   - Nessa consulta, basta apenas passar o id do cliente na url e ser· feito a exclus„o do cliente.
+### 5) ***Exclus√£o de clientes***
+   - Nessa consulta, basta apenas passar o id do cliente na url e ser√° feito a exclus√£o do cliente.
 
 
-- ***MÈtodo:*** DELETE
+- ***M√©todo:*** DELETE
 
 
 - ***Url:*** `http://localhost:8080/api/clients/{id}`
@@ -140,23 +165,3 @@ ServiÁo consulta e cadastro de Clientes
 
 - ***Exemplo:*** `http://localhost:8080/api/clients/1`
 
-
-- ***Retorno:*** 
-
-
-
-
-# docker build -t wanderalvess/clients-front:1.0.0 .
-# docker run -p 8081:8081 wanderalvess/clients-front:1.0.0
-
-# docker build -t wanderalvess/clients-back:1.0.0 .
-# docker run -p 8080:8080 wanderalvess/clients-back:1.0.0
-
-# docker run -it --name=Frontend  --rm -p 8081:8081 wanderalvess/clients-front:1.0.0
-
-# Baixar imagem docker:
-# docker run wanderalvess/clients-back
-# docker run wanderalvess/clients-front
-
-# Pode ser usado o comando abaixo, para iniciar todos ao mesmo tempo
-# docker-compose up
