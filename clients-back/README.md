@@ -78,7 +78,7 @@ Serviços API
 
 
 ### 3) ***Cadastro de clientes***
-   - Nesse serviço, é preciso informar todos os dados do cliente no corpo da requisição para o cadastro. É utilizado o método POST.
+   - Nesse serviço, é preciso informar todos os dados do cliente no corpo da requisição para o cadastro. Todos os campos são tipo String.
 
 
 - ***Método:*** POST
@@ -116,7 +116,7 @@ Serviços API
 				}
 
 ### 4) ***Atualização de clientes***
-   - Nesse serviço, será feito a atualização dos dados do cliente, é preciso informar as alterações do cliente no corpo da requisição para o cadastro.
+   - Nesse serviço, será feito a atualização dos dados do cliente, é preciso informar as alterações do cliente no corpo da requisição para o cadastro. Todos os campos são tipo String.
 
 
 - ***Método:*** PUT
