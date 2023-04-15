@@ -1,27 +1,7 @@
 Projeto consulta e cadastro de Clientes
 ======
 
-# ***1° Forma de executar esse projeto no Docker***
-
-## Baixar imagens docker:
-- executar no terminal: 
-
-		docker pull wanderalvess/clients-back
-- executar no terminal: 
-
-		docker pull wanderalvess/clients-front
-
-## Criar docker compose:
-- Baixe o arquivo aqui desse repositorio [Docker-compose](https://github.com/wanderalvess/clients-angular-spring/blob/main/docker-compose.yml)
-- Ou entre no link acima, cópie e crie um arquivo docker-compose.yml na pasta que baixou as imagens.
-
-## Executar imagens docker
-- use esse comando para subir as imagens:
-
-		docker-compose up
-		
-		
-# ***2° Forma de executar esse projeto no Docker***		
+# ***1° Forma de executar esse projeto no Docker***		
 		
 # Pode ser usado o Docker Compose, para iniciar todos ao mesmo tempo
 
@@ -30,30 +10,26 @@ Projeto consulta e cadastro de Clientes
 
 		git clone https://github.com/wanderalvess/clients-angular-spring.git
 		
-## Criar as imagens
+## Criar as imagens:
 - ir até a pasta clients-back: 
 
-			cd ./clients-back
+		cd ./clients-back
 
-	- executar no terminal: 
+- executar no terminal: 
 
-			mvn clean install
-
-	- executar no terminal: 
-
-			docker build -t wanderalvess/clients-back:1.0.0 .
+        docker build -t wanderalvess/clients-back:1.0.0 .
 
 - ir até a pasta clients-front: 
 
-			cd ./clients-front
+		cd ./clients-front
 
-	- executar no terminal: 
+- executar no terminal: 
 
-			npm install
+		npm install
 
-	- executar no terminal: 
+- executar no terminal: 
 
-			docker build -t wanderalvess/clients-front:1.0.0 .
+		docker build -t wanderalvess/clients-front:1.0.0 .
 
 - voltar para pasta raiz:
 
@@ -61,9 +37,9 @@ Projeto consulta e cadastro de Clientes
 
 - executar no terminal: 
 
-			docker-compose up
+       docker-compose up
 	
-# ***3° Forma de executar esse projeto baixando o repositório***
+# ***2° Forma de executar esse projeto baixando o repositório***
 	
 ## Baixar projeto:
 - Git clone:
@@ -77,11 +53,7 @@ Projeto consulta e cadastro de Clientes
 	- ir até a pasta clients-back: 
 	
 			cd ./clients-back
-		
-	- executar no terminal: 
-	
-			mvn clean install
-		
+
 	- executar no terminal: 
 	
 			docker build -t wanderalvess/clients-back:1.0.0 .
@@ -89,6 +61,10 @@ Projeto consulta e cadastro de Clientes
 	- executar no terminal: 
 	
 			docker run -p 8080:8080 wanderalvess/clients-back:1.0.0
+  
+    - Container será iniciado no caminho:
+
+			http://localhost:8080/api/clients
 		
 
 ### Build TomCat
@@ -101,10 +77,10 @@ Projeto consulta e cadastro de Clientes
 	
 			maven clean install
 			
-    	- executar ou depurar a aplicação
-    	- Tomcat será iniciado no caminho: 
+    - executar ou depurar a aplicação
+    - Tomcat será iniciado no caminho: 
 	
-			http://localhost:8080/api/clients 
+           http://localhost:8080/api/clients 
     
 ## Formas de Build no Front-End
 
@@ -134,17 +110,17 @@ Projeto consulta e cadastro de Clientes
 	
 			cd ./clients-front
 			
-	- executar no terminal:
+    - executar no terminal:
 	
-			npm install
+		    npm install
 			
-    	- executar no terminal:
-	
-			npm run start
+    - executar no terminal:
+		
+            npm run start
 
-    	- Serve será iniciado no caminho:
+    - Serve será iniciado no caminho:
 	
-			http://localhost:4200
+            http://localhost:4200
 
 
 # ***Informações Sobre o Front-End:***
