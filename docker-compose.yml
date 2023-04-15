@@ -1,0 +1,27 @@
+version: '3.4'
+
+services:
+  clients-front:
+    build:
+      context: /clients-front
+      dockerfile: Dockerfile
+    ports:
+      - "8081:8081"
+    depends_on:
+      - clients-back
+    networks:
+      - clients
+
+
+  clients-back:
+    build:
+      context: /clients-back
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - clients
+
+networks:
+  clients:
+    driver: bridge

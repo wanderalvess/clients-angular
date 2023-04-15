@@ -1,8 +1,0 @@
-version: '3.4'
-
-services:
-  clients-front:
-    image: clients-front
-    build: .
-    ports:
-      - 8080:8081

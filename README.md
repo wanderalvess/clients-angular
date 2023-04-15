@@ -1,7 +1,15 @@
-Projeto consulta e cadastro de Clientes Front-End
+Projeto consulta e cadastro de Clientes
 ======
 
-### ***Informações Sobre o Projeto:***
+# Baixar imagem docker:
+- docker run wanderalvess/clients-back
+- docker run wanderalvess/clients-front
+
+# Pode ser usado o comando abaixo, para iniciar todos ao mesmo tempo
+- docker-compose up
+
+
+### ***Informações Sobre o Front-End:***
 
 - Esse projeto foi feito com angular e node
 - ***Versões:***
@@ -13,23 +21,15 @@ Projeto consulta e cadastro de Clientes Front-End
 - Informações completas de Build no Readme dentro da pasta do projeto.
 
 
-Projeto consulta e cadastro de Clientes Back-End
-======
+### ***Informações Sobre o Back-End:***
 
-### ***Informações Sobre o Projeto:***
-
-- Esse projeto foi feito com Java, SpringBot, Maven e criado os container com docker.
+- Esse projeto foi feito com Java, SpringBot e Maven.
 - ***Versões:***
 	- Java: 11.0.9
 	- Apache Maven: 3.8.6
 	- SpringBot: 2.7.5
   
  - Informações completas de Build no Readme dentro da pasta do projeto.
-
-
-Importante
-======
-- Deve ser iniciado o projeto back-end antes da execução do front.
 
 
 Plano de Teste
