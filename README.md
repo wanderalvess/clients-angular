@@ -1,42 +1,181 @@
 Projeto consulta e cadastro de Clientes
 ======
 
-# Push image local para docker hub
-- docker login
-- docker tag clients-angular-spring-clients-back:latest wanderalvess/clients-back:1.0.0
-- docker push wanderalvess/clients-back:1.0.0
+# ***1° Forma de executar esse projeto no Docker***
+
+## Baixar imagens docker:
+- executar no terminal: 
+
+		docker pull wanderalvess/clients-back
+- executar no terminal: 
+
+		docker pull wanderalvess/clients-front
+
+## Criar docker compose:
+- Baixe o arquivo aqui desse repositorio [Docker-compose](https://github.com/wanderalvess/clients-angular-spring/blob/main/docker-compose.yml)
+- Ou entre no link acima, cópie e crie um arquivo docker-compose.yml na pasta que baixou as imagens.
+
+## Executar imagens docker
+- use esse comando para subir as imagens:
+
+		docker-compose up
+		
+		
+# ***2° Forma de executar esse projeto no Docker***		
+		
+# Pode ser usado o Docker Compose, para iniciar todos ao mesmo tempo
+
+## Baixar o projeto:
+- Git clone:
+
+		git clone https://github.com/wanderalvess/clients-angular-spring.git
+		
+## Criar as imagens
+- ir até a pasta clients-back: 
+
+			cd ./clients-back
+
+	- executar no terminal: 
+
+			mvn clean install
+
+	- executar no terminal: 
+
+			docker build -t wanderalvess/clients-back:1.0.0 .
+
+- ir até a pasta clients-front: 
+
+			cd ./clients-front
+
+	- executar no terminal: 
+
+			npm install
+
+	- executar no terminal: 
+
+			docker build -t wanderalvess/clients-front:1.0.0 .
+
+- voltar para pasta raiz:
+
+		cd ..
+
+- executar no terminal: 
+
+			docker-compose up
+	
+# ***3° Forma de executar esse projeto baixando o repositório***
+	
+## Baixar projeto:
+- Git clone:
+
+		git clone https://github.com/wanderalvess/clients-angular-spring.git
+	
+## Formas de Build no Back-End
+
+### Build Docker
+- ***Criar imagem e executar***
+	- ir até a pasta clients-back: 
+	
+			cd ./clients-back
+		
+	- executar no terminal: 
+	
+			mvn clean install
+		
+	- executar no terminal: 
+	
+			docker build -t wanderalvess/clients-back:1.0.0 .
+		
+	- executar no terminal: 
+	
+			docker run -p 8080:8080 wanderalvess/clients-back:1.0.0
+		
+
+### Build TomCat
+- ***Executar metódo principal (main)***
+	- ir até a pasta clients-front: 
+	
+			cd ./clients-back
+			
+	- executar no terminal:  
+	
+			maven clean install
+			
+    	- executar ou depurar a aplicação
+    	- Tomcat será iniciado no caminho: 
+	
+			http://localhost:8080/api/clients 
+    
+## Formas de Build no Front-End
+
+### Build Docker
+- ***Criar imagem e executar***
+	- ir até a pasta clients-front: 
+	
+			cd ./clients-front
+			
+	- executar no terminal: 
+	
+			npm install
+			
+	- executar no terminal: 
+			
+			docker build -t wanderalvess/clients-front:1.0.0 .
+			
+	- executar no terminal: 
+	
+			docker run -p 8081:8081 wanderalvess/clients-front:1.0.0
+			
+	
+### Build Ng Serve
+
+- ***Executar aplicação***
+	- ir até a pasta clients-front:
+	
+			cd ./clients-front
+			
+	- executar no terminal:
+	
+			npm install
+			
+    	- executar no terminal:
+	
+			npm run start
+
+    	- Serve será iniciado no caminho:
+	
+			http://localhost:4200
 
 
-# Baixar imagem docker:
-- docker run wanderalvess/clients-back
-- docker run wanderalvess/clients-front
+# ***Informações Sobre o Front-End:***
 
-# Pode ser usado o comando abaixo, para iniciar todos ao mesmo tempo
-- docker-compose up
-
-
-### ***Informações Sobre o Front-End:***
-
-- Esse projeto foi feito com angular e node
+## Esse projeto foi feito com angular e node
 - ***Versões:***
 	- Angular CLI: 14.2.8
 	- Angular: 14.2.9
 	- Node: 14.15.0
 	- Package Manager: npm 6.14.8
   
-- Informações completas de Build no Readme dentro da pasta do projeto.
+## Documentação via Compodoc
+
+- ***Subir serve de documentação***
+	- executar no terminal: 
+	
+			npm run serve-docs
+			
+	- Server Documentação no caminho: 
+	
+			http://127.0.0.1:9000
 
 
-### ***Informações Sobre o Back-End:***
+# ***Informações Sobre o Back-End:***
 
-- Esse projeto foi feito com Java, SpringBot e Maven.
+## Esse projeto foi feito com Java, SpringBot e Maven.
 - ***Versões:***
 	- Java: 11.0.9
 	- Apache Maven: 3.8.6
 	- SpringBot: 2.7.5
   
- - Informações completas de Build no Readme dentro da pasta do projeto.
-
 
 Plano de Teste
 ======
