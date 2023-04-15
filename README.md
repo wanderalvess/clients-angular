@@ -1,6 +1,12 @@
 Projeto consulta e cadastro de Clientes
 ======
 
+# Push image local para docker hub
+- docker login
+- docker tag clients-angular-spring-clients-back:latest wanderalvess/clients-back:1.0.0
+- docker push wanderalvess/clients-back:1.0.0
+
+
 # Baixar imagem docker:
 - docker run wanderalvess/clients-back
 - docker run wanderalvess/clients-front
