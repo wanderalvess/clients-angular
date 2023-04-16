@@ -1,5 +1,6 @@
+import { MapComponent } from '../../components/map/map.component';
 import { Location } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { NonNullableFormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
@@ -12,7 +13,9 @@ import { ClientsService } from '../../services/clients.service';
   templateUrl: './client-form.component.html',
   styleUrls: ['./client-form.component.scss']
 })
+
 export class ClientFormComponent implements OnInit {
+
 
   form = this.formBuilder.group({
     _id: [''],
@@ -51,7 +54,9 @@ export class ClientFormComponent implements OnInit {
     //this.form
    }
 
-   onDocumentInput() {
+  @ViewChild(MapComponent) map?: MapComponent;
+
+  onDocumentInput() {
     const documentField = this.form.get('document');
     if (documentField) {
       const formattedValue = this.formatDocument(documentField.value);
@@ -79,16 +84,6 @@ export class ClientFormComponent implements OnInit {
       latitude: client.latitude,
       longitude: client.longitude
     });
-  }
-
-  lat = '-49.257813';
-  lng = '-49.257813';
-  map = null;
-
-  public recentralizarMapa(client: Client) {
-
-    this.lat = client.latitude;
-    this.lng = client.longitude;
   }
 
   onSubmit() {
@@ -127,5 +122,12 @@ export class ClientFormComponent implements OnInit {
     }
 
     return 'Campo Inválido';
+  }
+
+  findCoordinates(): void {
+    const latitude = this.form.get('latitude');
+    const longitude = this.form.get('longitude')
+    const coordenadas = `${latitude},${longitude}`;
+    this.map?.findCoordinate(coordenadas);
   }
 }

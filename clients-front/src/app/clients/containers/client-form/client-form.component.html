@@ -30,6 +30,7 @@
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Latitude" formControlName="latitude" #latitude>
+        <mat-hint align="end">{{ latitude.value.length || 0 }}</mat-hint>
         <mat-error *ngIf="form.get('latitude')?.invalid">{{
           getErrorMessage("latitude")
         }}</mat-error>
@@ -37,6 +38,7 @@
 
       <mat-form-field class="full-width">
         <input matInput placeholder="Longitude" formControlName="longitude" #longitude>
+        <mat-hint align="end">{{ longitude.value.length || 0 }}</mat-hint>
         <mat-error *ngIf="form.get('longitude')?.invalid">{{
           getErrorMessage("longitude")
         }}</mat-error>

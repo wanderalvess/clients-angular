@@ -13,7 +13,8 @@ import { ClientsListComponent } from './components/clients-list/clients-list.com
   declarations: [
     ClientsComponent,
     ClientFormComponent,
-    ClientsListComponent
+    ClientsListComponent,
+
   ],
   imports: [
     CommonModule,

@@ -3,13 +3,17 @@ import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MapComponent } from './clients/components/map/map.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +21,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     HttpClientModule,
+    LeafletModule,
 
   ],
   providers: [],

@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { latLng, MapOptions, marker, tileLayer } from 'leaflet';
+
 
 import { Client } from '../../model/client';
 
@@ -34,4 +36,5 @@ export class ClientsListComponent implements OnInit  {
   onDelete(client: Client) {
     this.remove.emit(client);
   }
+
 }

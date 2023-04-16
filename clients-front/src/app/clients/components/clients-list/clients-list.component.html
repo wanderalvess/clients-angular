@@ -20,7 +20,7 @@
 
   <!-- Address Column -->
   <ng-container matColumnDef="address">
-    <mat-header-cell *matHeaderCellDef> Endereço </mat-header-cell>
+    <mat-header-cell *matHeaderCellDef> Endereço completo </mat-header-cell>
     <mat-cell *matCellDef="let client"> {{client.address}} </mat-cell>
   </ng-container>
 
@@ -62,4 +62,3 @@
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
 </mat-table>
-
