@@ -49,6 +49,11 @@ public class ClientController {
     @PutMapping("/{id}")
     public ResponseEntity<Client> update(@PathVariable Long id,
                                          @RequestBody Client client) {
+        validateName(client.getName());
+        validateDocument(client.getDocument());
+        validateAddress(client.getAddress());
+        validateLatitude(client.getLatitude());
+        validateLongitude(client.getLongitude());
         return clientRepository.findById(id)
                 .map(recordFound -> {
                     recordFound.setName(client.getName());
