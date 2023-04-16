@@ -1,6 +1,6 @@
 import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { NonNullableFormBuilder, Validators } from '@angular/forms';
+import { NonNullableFormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 
@@ -19,23 +19,28 @@ export class ClientFormComponent implements OnInit {
     name: ['',
       [Validators.required,
       Validators.minLength(4),
-      Validators.maxLength(100)]],
+      Validators.maxLength(100),
+      Validators.nullValidator]],
     document: ['',
       [Validators.required,
       Validators.minLength(11),
-      Validators.maxLength(14)]],
+      Validators.maxLength(18),
+      Validators.nullValidator]],
     address: ['',
       [Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(100)]],
+      Validators.maxLength(100),
+      Validators.nullValidator]],
     latitude: ['',
       [Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(100)]],
+      Validators.maxLength(100),
+      Validators.nullValidator]],
     longitude: ['',
       [Validators.required,
       Validators.minLength(5),
-      Validators.maxLength(100)]]
+      Validators.maxLength(100),
+      Validators.nullValidator]]
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,
@@ -45,6 +50,24 @@ export class ClientFormComponent implements OnInit {
     private route: ActivatedRoute) {
     //this.form
    }
+
+   onDocumentInput() {
+    const documentField = this.form.get('document');
+    if (documentField) {
+      const formattedValue = this.formatDocument(documentField.value);
+      documentField.setValue(formattedValue);
+    }
+  }
+
+  formatDocument(value: string): string {
+    value = value.replace(/\D/g, '');
+
+    if (value.length === 11) {
+      return value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    } else {
+      return value.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+    }
+  }
 
   ngOnInit(): void {
     const client: Client = this.route.snapshot.data['client']
