@@ -4,6 +4,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NonNullableFormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { Client } from '../../model/client';
 import { ClientsService } from '../../services/clients.service';
@@ -88,7 +89,7 @@ export class ClientFormComponent implements OnInit {
 
   onSubmit() {
     this.service.save(this.form.value)
-    .subscribe(result => this.onSucess(), error => this.onError());
+    .subscribe(result => this.onSucess(), error => this.onError(error));
   }
 
   onCancel() {
@@ -100,8 +101,12 @@ export class ClientFormComponent implements OnInit {
     this.onCancel();
   }
 
-  private onError() {
-    this.snackBar.open('Erro ao salvar novo cliente', '', { duration: 4000 });
+  private onError(error: HttpErrorResponse) {
+    let errorMessage = 'Erro ao salvar novo cliente';
+    if (error && error.error && error.error.message) { // Verificando se a mensagem de erro está presente no objeto de erro
+      errorMessage = error.error.message; // Obtendo a mensagem de erro do objeto de erro
+    }
+    this.snackBar.open(errorMessage, '', { duration: 4000 });
   }
 
   getErrorMessage(fieldName: string) {

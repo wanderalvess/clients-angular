@@ -22,9 +22,9 @@ public class ClientsBackApplication {
 
 			Client c = new Client();
 
-			c.setName("João");
+			c.setName("João Ferreira");
 			c.setDocument("11.111.111/0001-11");
-			c.setAddress("Av. 136");
+			c.setAddress("Av. 136, Qd. 15, Lt. 28, Serrinha, Goiânia - GO");
 			c.setLatitude("-16.700884642335396");
 			c.setLongitude("-49.25342831243458");
 

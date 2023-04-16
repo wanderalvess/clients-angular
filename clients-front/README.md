@@ -5,17 +5,47 @@ Projeto consulta e cadastro de Clientes Front
 
 - Esse projeto foi feito com angular e node
 - ***Versões:***
-	- Angular CLI: 14.2.8
-	- Angular: 14.2.9
-	- Node: 14.15.0
-	- Package Manager: npm 6.14.8
+	- Angular CLI: 15.2.6
+	- Angular: 15.2.7
+	- Node: 14.20.0
+	- Package Manager: npm 6.14.17
 
-Build Ng Serve
-======
+### Build Docker
+- ***Criar imagem e executar***
+	- ir até a pasta clients-front: 
+	
+			cd ./clients-front
+			
+	- executar no terminal: 
+	
+			npm install
+			
+	- executar no terminal: 
+			
+			docker build -t wanderalvess/clients-front:1.0.0 .
+			
+	- executar no terminal: 
+	
+			docker run -p 8081:8081 wanderalvess/clients-front:1.0.0
+
+### Build Ng Serve
+
 - ***Executar aplicação***
-	- npm install
-    - npm run start
-    - Serve será iniciado no caminho: http://localhost:4200 (http)
+	- ir até a pasta clients-front:
+	
+			cd ./clients-front
+			
+    - executar no terminal:
+	
+		    npm install
+			
+    - executar no terminal:
+		
+            npm run start
+
+    - Serve será iniciado no caminho:
+	
+            http://localhost:4200
 
 Documentação via Compodoc
 ======

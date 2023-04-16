@@ -1,6 +1,8 @@
 Projeto consulta e cadastro de Clientes
 ======
 
+### O projeto "Consulta e Cadastro de Clientes" é uma aplicação web desenvolvida utilizando Angular, Spring Boot e Maven. Ele permite cadastrar, listar, editar e excluir clientes em um sistema.
+
 # ***1° Forma de executar esse projeto no Docker***		
 		
 # Pode ser usado o Docker Compose, para iniciar todos ao mesmo tempo
@@ -91,10 +93,6 @@ Projeto consulta e cadastro de Clientes
 			cd ./clients-front
 			
 	- executar no terminal: 
-	
-			npm install
-			
-	- executar no terminal: 
 			
 			docker build -t wanderalvess/clients-front:1.0.0 .
 			
@@ -127,10 +125,11 @@ Projeto consulta e cadastro de Clientes
 
 ## Esse projeto foi feito com angular e node
 - ***Versões:***
-	- Angular CLI: 14.2.8
-	- Angular: 14.2.9
-	- Node: 14.15.0
-	- Package Manager: npm 6.14.8
+	- Angular CLI: 15.2.6
+	- Angular: 15.2.7
+	- Node: 14.20.0
+	- Package Manager: npm 6.14.17
+
   
 ## Documentação via Compodoc
 

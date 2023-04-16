@@ -30,7 +30,7 @@ export class ClientsComponent implements OnInit {
   refresh() {
     this.clients$ = this.clientsService.list().pipe(
       catchError((error) => {
-        this.onError('Erro ao carregar clientes.');
+        this.onError('Erro ao carregar lista de clientes. Por Favor, verifique o banco de dados ou entre em contato com o suporte.');
         return of([]);
       })
     );
