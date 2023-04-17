@@ -105,12 +105,12 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
   }
 
   private onSucess() {
-    this.snackBar.open('Cliente salvo com sucesso!', '', { duration: 4000 });
+    this.snackBar.open('O Cadastro do Cliente foi salvo com sucesso!', '', { duration: 4000 });
     this.onCancel();
   }
 
   private onError(error: HttpErrorResponse) {
-    let errorMessage = 'Erro ao salvar novo cliente';
+    let errorMessage = 'Erro ao salvar o cadastro do cliente, verifique se preencheu todos os campos';
     if (error && error.error && error.error.message) {
       errorMessage = error.error.message;
     }
@@ -139,7 +139,7 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
 
   findCoordinates(): void {
     if(!this.form.value.latitude?.length || !this.form.value.longitude?.length) {
-      this.snackBar.open('É necessario preencher os campos de latitude e longitude!', '', { duration: 4000 });
+      this.snackBar.open('É necessário preencher os campos de latitude e longitude!', '', { duration: 4000 });
     }
     const latitude = this.form.value.latitude;
     const longitude = this.form.value.longitude;
