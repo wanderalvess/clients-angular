@@ -4,5 +4,11 @@
     <file url="file://$PROJECT_DIR$/clients-back/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/clients-back/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/clients-front/src/app/shared/components/map" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/clients-front/src/assets/leaflet" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/clients-front/src/assets/leaflet/layers-2x.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/clients-front/src/assets/leaflet/layers.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/clients-front/src/assets/leaflet/marker-icon-2x.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/clients-front/src/assets/leaflet/marker-icon.png" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/clients-front/src/assets/leaflet/marker-shadow.png" charset="ISO-8859-1" />
   </component>
 </project>

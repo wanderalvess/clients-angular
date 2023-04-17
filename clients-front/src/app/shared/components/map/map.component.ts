@@ -17,6 +17,7 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    L.Icon.Default.imagePath = "assets/leaflet/"
     this.map = L.map('map').setView([-23.5489, -46.6388], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; OpenStreetMap contributors'
