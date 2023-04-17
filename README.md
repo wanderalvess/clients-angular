@@ -130,7 +130,7 @@ Projeto consulta e cadastro de Clientes
 	- Node: 14.20.0
 	- Package Manager: npm 6.14.17
 
-  
+
 ## Documentação via Compodoc
 
 - ***Subir serve de documentação***
@@ -157,28 +157,30 @@ Plano de Teste
 
 ### ***Listar Clientes:***
 - Após build dos projetos, a tela inicial será mostrado os clientes cadastrados.
-![initial](https://user-images.githubusercontent.com/74334991/200380891-933365e7-a184-4b58-a6a7-46d46c73e048.png)
+![initial](https://user-images.githubusercontent.com/74334991/232462255-1321ee26-adce-4798-980a-ba4876783636.png)
 
 ### ***Ações:***
 - No botão de adicionar (icone de +) do lado direito, será possível cadastrar novos clientes.
-![register](https://user-images.githubusercontent.com/74334991/200381047-a3804d33-e325-420c-91fe-f2715174ee0e.png)
+![register](https://user-images.githubusercontent.com/74334991/232462326-ddbfbe81-7ffc-4ec8-99a4-e8097ed3c633.png)
 
 - No Botão de excluir (icone de lixeira) do lado direito das informações do cliente, será possível excluir um cadastro de cliente.
+![remove](https://user-images.githubusercontent.com/74334991/232462856-d548ad50-3795-444f-a48a-095b5a825394.png)
 
 - No Botão de editar (icone de lápis) do lado direito das informações do cliente, será possível editar um cadastro de cliente.
+![edit](https://user-images.githubusercontent.com/74334991/232462387-9c48c12b-3798-4c61-af1e-34f6f5d91cdb.png)
 
 - No botão de salvar, na tela de cadastro de cliente, será possível salvar um novo cadastro ou que está sendo editado.
 
 - No botão de cancelar, na tela de cadastro de cliente, será possível voltar para a tela inicial.
 
-- No botão de buscar localização, na tela de cadastro de cliente, será possível adicionar uma marcador com a localização do cliente(Campo latitude e Longitude e requerido)
+- No botão de buscar localização, na tela de cadastro de cliente, será possível adicionar uma marcador com a localização do cliente (Campo latitude e Longitude é obrigatório)
 ![localization](https://user-images.githubusercontent.com/74334991/232457796-254afb32-20b7-4cf6-aae0-ff5e655c6566.png)
 
 ### ***Validações:***
 
 - Validações de conexão:
 	- Se o front-end estiver em execução e não conseguir encontrar o back-end, mostrar a mensagem que não foi possível encontrar a lista de clientes.
-	![err](https://user-images.githubusercontent.com/74334991/200382297-7623cc3d-5fd9-41c0-89f7-7591c0819825.png)
+	![connection](https://user-images.githubusercontent.com/74334991/232464352-9268507e-a64e-4b50-af43-adc5d1551162.png)
 
 - Validações novos cadastros:
 	- Nome:
@@ -199,7 +201,7 @@ Plano de Teste
 		- Tamanho mínimo precisa ser de 5 caracteres.
 		- Campo obrigatório
 
-![validation](https://user-images.githubusercontent.com/74334991/200383148-c1ccbc1c-e1ce-4e5e-a17b-105cc44cb82b.png)
+![validation](https://user-images.githubusercontent.com/74334991/232464084-25f37b47-5613-4fe3-ba09-d1ca8d5bac76.png)
 
 
 
