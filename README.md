@@ -171,6 +171,9 @@ Plano de Teste
 
 - No botão de cancelar, na tela de cadastro de cliente, será possível voltar para a tela inicial.
 
+- No botão de buscar localização, na tela de cadastro de cliente, será possível adicionar uma marcador com a localização do cliente(Campo latitude e Longitude e requerido)
+![localization](https://user-images.githubusercontent.com/74334991/232457796-254afb32-20b7-4cf6-aae0-ff5e655c6566.png)
+
 ### ***Validações:***
 
 - Validações de conexão:
