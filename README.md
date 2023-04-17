@@ -203,7 +203,7 @@ Plano de Teste
 
 ![validation](https://user-images.githubusercontent.com/74334991/232464084-25f37b47-5613-4fe3-ba09-d1ca8d5bac76.png)
 
-- Temos testes unitários para o backend localizados na pasta src/test e pode ser acessado atravez de uma ide:
+- OS testes unitários para o backend estão localizados na pasta src/test e pode ser acessado através de uma ide:
 ![testpng](https://user-images.githubusercontent.com/74334991/232580568-b5d32b5a-2e17-4ac8-93c0-5b44077765ca.png)
 
 
