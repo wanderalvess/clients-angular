@@ -19,7 +19,7 @@ Projeto consulta e cadastro de Clientes
 
 - executar no terminal: 
 
-        docker build -t wanderalvess/clients-back:1.0.0 .
+        docker build -t wanderalvess/clients-back:2.0.0 .
 
 - ir até a pasta clients-front: 
 
@@ -31,7 +31,7 @@ Projeto consulta e cadastro de Clientes
 
 - executar no terminal: 
 
-		docker build -t wanderalvess/clients-front:1.0.0 .
+		docker build -t wanderalvess/clients-front:2.0.0 .
 
 - voltar para pasta raiz:
 
@@ -58,11 +58,11 @@ Projeto consulta e cadastro de Clientes
 
 	- executar no terminal: 
 	
-			docker build -t wanderalvess/clients-back:1.0.0 .
+			docker build -t wanderalvess/clients-back:2.0.0 .
 		
 	- executar no terminal: 
 	
-			docker run -p 8080:8080 wanderalvess/clients-back:1.0.0
+			docker run -p 8080:8080 wanderalvess/clients-back:2.0.0
   
     - Container será iniciado no caminho:
 
