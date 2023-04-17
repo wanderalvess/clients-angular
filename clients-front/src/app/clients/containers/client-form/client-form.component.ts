@@ -138,6 +138,9 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
   }
 
   findCoordinates(): void {
+    if(!this.form.value.latitude?.length || !this.form.value.longitude?.length) {
+      this.snackBar.open('É necessario preencher os campos de latitude e longitude!', '', { duration: 4000 });
+    }
     const latitude = this.form.value.latitude;
     const longitude = this.form.value.longitude;
     const coordinates = `${latitude},${longitude}`;
