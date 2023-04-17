@@ -1,4 +1,4 @@
-import { MapComponent } from '../../components/map/map.component';
+import { MapComponent } from '../../../../app/shared/components/map/map.component';
 import { Location } from '@angular/common';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NonNullableFormBuilder, Validators, FormControl } from '@angular/forms';
@@ -130,9 +130,11 @@ export class ClientFormComponent implements OnInit {
   }
 
   findCoordinates(): void {
-    const latitude = this.form.get('latitude');
-    const longitude = this.form.get('longitude')
+    console.log(this.form)
+    const latitude = this.form.value.latitude;
+    const longitude = this.form.value.longitude;
     const coordenadas = `${latitude},${longitude}`;
+    console.log(coordenadas)
     this.map?.findCoordinate(coordenadas);
   }
 }

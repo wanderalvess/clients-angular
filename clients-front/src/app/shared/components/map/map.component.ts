@@ -30,6 +30,8 @@ export class MapComponent implements OnInit {
       console.log(response)
       const lat = response.data[0].lat;
       const lng = response.data[0].lon;
+      console.log(lat);
+      console.log(lng);
       this.addMarker(lat, lng);
     }).catch(error => {
       console.log(error);

@@ -8,12 +8,12 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MapComponent } from './clients/components/map/map.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+
   ],
   imports: [
     BrowserModule,

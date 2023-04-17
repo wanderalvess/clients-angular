@@ -49,10 +49,11 @@
   <mat-card-actions>
     <button mat-raised-button color="primary" (click)="onSubmit()">Salvar</button>
     <button mat-raised-button color="warn" (click)="onCancel()">Cancelar</button>
+    <button mat-raised-button color="warn" (click)="findCoordinates()">Buscar localização</button>
   </mat-card-actions>
 </mat-card>
 
 <mat-card align="center" class="mat-elevation-z4" style="height: 500px">
   <mat-toolbar color="accent">Mapa de localização do Cliente</mat-toolbar>
-  <map></map>
+  <app-map></app-map>
 </mat-card>
