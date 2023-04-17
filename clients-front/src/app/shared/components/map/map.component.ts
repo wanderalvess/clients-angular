@@ -17,28 +17,23 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // inicializar o mapa
     this.map = L.map('map').setView([-23.5489, -46.6388], 13);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; OpenStreetMap contributors'
     }).addTo(this.map);
   }
 
-  findCoordinate(coordenadas: string): void {
-    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${coordenadas}`;
+  findCoordinate(coordinates: string): void {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${coordinates}`;
     axios.get(url).then(response => {
-      console.log(response)
       const lat = response.data[0].lat;
       const lng = response.data[0].lon;
-      console.log(lat);
-      console.log(lng);
       this.addMarker(lat, lng);
     }).catch(error => {
       console.log(error);
     });
   }
 
-  // a função recebe as coordenadas do endereço do cliente e adiciona um marcador no mapa
   addMarker(lat: number, lng: number): void {
     if (!this.map) {
       this.map = L.map('map').setView([lat, lng], 13);
@@ -48,9 +43,9 @@ export class MapComponent implements OnInit {
       }).addTo(this.map);
     }
 
-    const novoMarcador = L.marker([lat, lng]).addTo(this.map);
-    const coordenadas = novoMarcador.getLatLng();
-    this.map.setView(coordenadas, 13);
+    const newMarker = L.marker([lat, lng]).addTo(this.map);
+    const coordinates = newMarker.getLatLng();
+    this.map.setView(coordinates, 13);
   }
 
 }

@@ -1,6 +1,6 @@
 import { MapComponent } from '../../../../app/shared/components/map/map.component';
 import { Location } from '@angular/common';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import { NonNullableFormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
@@ -15,8 +15,7 @@ import { ClientsService } from '../../services/clients.service';
   styleUrls: ['./client-form.component.scss']
 })
 
-export class ClientFormComponent implements OnInit {
-
+export class ClientFormComponent implements OnInit, AfterViewInit {
 
   form = this.formBuilder.group({
     _id: [''],
@@ -77,6 +76,9 @@ export class ClientFormComponent implements OnInit {
 
   ngOnInit(): void {
     const client: Client = this.route.snapshot.data['client']
+    if (client.latitude && client.longitude) {
+      this.map?.addMarker(Number(client.latitude), Number(client.longitude));
+    }
     this.form.setValue({
       _id: client._id,
       name: client.name,
@@ -85,6 +87,12 @@ export class ClientFormComponent implements OnInit {
       latitude: client.latitude,
       longitude: client.longitude
     });
+  }
+  ngAfterViewInit(): void {
+    const client = this.form.value;
+    if (client.latitude && client.longitude) {
+      this.map?.addMarker(Number(client.latitude), Number(client.longitude));
+    }
   }
 
   onSubmit() {
@@ -103,8 +111,8 @@ export class ClientFormComponent implements OnInit {
 
   private onError(error: HttpErrorResponse) {
     let errorMessage = 'Erro ao salvar novo cliente';
-    if (error && error.error && error.error.message) { // Verificando se a mensagem de erro está presente no objeto de erro
-      errorMessage = error.error.message; // Obtendo a mensagem de erro do objeto de erro
+    if (error && error.error && error.error.message) {
+      errorMessage = error.error.message;
     }
     this.snackBar.open(errorMessage, '', { duration: 4000 });
   }
@@ -130,11 +138,9 @@ export class ClientFormComponent implements OnInit {
   }
 
   findCoordinates(): void {
-    console.log(this.form)
     const latitude = this.form.value.latitude;
     const longitude = this.form.value.longitude;
-    const coordenadas = `${latitude},${longitude}`;
-    console.log(coordenadas)
-    this.map?.findCoordinate(coordenadas);
+    const coordinates = `${latitude},${longitude}`;
+    this.map?.findCoordinate(coordinates);
   }
 }

@@ -17,13 +17,11 @@ export class ClientsService {
     return this.httpClient.get<Client[]>(this.API).pipe(
       first(),
       delay(1000)
-      //tap(clients => console.log(clients) )
     );
   }
 
   loadById(id: string) {
     return this.httpClient.get<Client>(`${this.API}/${id}`);
-
   }
 
   private create(record: Partial<Client>) {
@@ -31,12 +29,9 @@ export class ClientsService {
   }
 
   save(record: Partial<Client>) {
-    //console.log(record)
     if (record._id) {
-      //console.log('update')
       return this.update(record);
     }
-    //console.log('create')
     return this.create(record);
   }
 
@@ -49,6 +44,4 @@ export class ClientsService {
   remove(id: string) {
     return this.httpClient.delete(`${this.API}/${id}`).pipe(first());
   }
-
-
 }
