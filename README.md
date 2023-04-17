@@ -19,7 +19,7 @@ Projeto consulta e cadastro de Clientes
 
 - executar no terminal: 
 
-        docker build -t wanderalvess/clients-back:2.0.0 .
+		docker build -t wanderalvess/clients-back:2.0.0 .
 
 - ir até a pasta clients-front: 
 
@@ -39,7 +39,7 @@ Projeto consulta e cadastro de Clientes
 
 - executar no terminal: 
 
-       docker-compose up
+		docker-compose up
 	
 # ***2° Forma de executar esse projeto baixando o repositório***
 	
@@ -82,7 +82,7 @@ Projeto consulta e cadastro de Clientes
     - executar ou depurar a aplicação
     - Tomcat será iniciado no caminho: 
 	
-           http://localhost:8080/api/clients 
+			http://localhost:8080/api/clients 
     
 ## Formas de Build no Front-End
 
@@ -106,19 +106,19 @@ Projeto consulta e cadastro de Clientes
 - ***Executar aplicação***
 	- ir até a pasta clients-front:
 	
-			cd ./clients-front
+		cd ./clients-front
 			
     - executar no terminal:
 	
-		    npm install
+		npm install
 			
     - executar no terminal:
 		
-            npm run start
+		npm run start
 
     - Serve será iniciado no caminho:
 	
-            http://localhost:4200
+		http://localhost:4200
 
 
 # ***Informações Sobre o Front-End:***
@@ -202,6 +202,9 @@ Plano de Teste
 		- Campo obrigatório
 
 ![validation](https://user-images.githubusercontent.com/74334991/232464084-25f37b47-5613-4fe3-ba09-d1ca8d5bac76.png)
+
+- Temos testes unitários para o backend localizados na pasta src/test e pode ser acessado atravez de uma ide:
+![testpng](https://user-images.githubusercontent.com/74334991/232580568-b5d32b5a-2e17-4ac8-93c0-5b44077765ca.png)
 
 
 
