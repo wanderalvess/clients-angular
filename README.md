@@ -40,6 +40,10 @@ Projeto consulta e cadastro de Clientes
 - executar no terminal: 
 
 		docker-compose up
+		
+- Container será iniciado no caminho:
+
+		http://localhost:8081/clients
 	
 # ***2° Forma de executar esse projeto baixando o repositório***
 	
