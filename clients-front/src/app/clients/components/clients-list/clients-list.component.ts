@@ -18,7 +18,7 @@ export class ClientsListComponent implements OnInit  {
   @Output() edit = new EventEmitter(false);
   @Output() remove = new EventEmitter(false);
 
-  displayedColumns = [ '_id','name','document','address','latitude','longitude', 'actions' ]
+  displayedColumns = [ '_id','name','document','address','neighborhood','latitude','longitude', 'phones', 'actions' ]
 
   constructor() { }
 

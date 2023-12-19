@@ -21,7 +21,9 @@ export class ClientResolver implements Resolve<Client> {
       name: '',
       document: '',
       address: '',
+      neighborhood: '',
       latitude: '',
-      longitude: ''});
+      longitude: '',
+      phones: []});
   }
 }

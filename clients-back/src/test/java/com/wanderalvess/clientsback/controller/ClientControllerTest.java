@@ -1,6 +1,7 @@
 package com.wanderalvess.clientsback.controller;
 
 import com.wanderalvess.clientsback.model.Client;
+import com.wanderalvess.clientsback.model.Phone;
 import com.wanderalvess.clientsback.repository.ClientRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,24 +49,66 @@ public class ClientControllerTest {
     @Test
     public void testList() {
         List<Client> clients = new ArrayList<>();
-        clients.add(new Client(1L, "João Ferreira", "12345678901", "Rua 1, Goiânia -GO", "10.12345", "20.67890"));
-        clients.add(new Client(2L, "Maria ferreira", "98765432101", "Rua 2, Goiânia -GO", "30.98765", "40.54321"));
+
+        List<Phone> phones1 = getPhones("6291916565");
+
+        Client client1 = new Client();
+        client1.setId(1L);
+        client1.setName("João Ferreira");
+        client1.setDocument("12345678901");
+        client1.setAddress("Rua 1");
+        client1.setNeighborhood("Serrinha");
+        client1.setLatitude("10.12345");
+        client1.setLongitude("10.12345");
+        client1.setPhones(phones1);
+
+        clients.add(client1);
+
+        List<Phone> phones2 = getPhones("6291916566");
+
+        Client client2 = new Client();
+        client2.setId(2L);
+        client2.setName("Maria Ferreira");
+        client2.setDocument("12345678902");
+        client2.setAddress("Rua 2");
+        client2.setNeighborhood("Bairro 2");
+        client2.setLatitude("20.12345");
+        client2.setLongitude("20.12345");
+        client2.setPhones(phones2);
+
+        clients.add(client2);
+
         when(clientRepository.findAll()).thenReturn(clients);
 
         List<Client> result = clientController.list();
 
         assertNotNull(result);
         assertEquals(2, result.size());
+
+        // Verificar os detalhes do primeiro cliente
         assertEquals("João Ferreira", result.get(0).getName());
-        assertEquals("Maria ferreira", result.get(1).getName());
+        assertEquals("12345678901", result.get(0).getDocument());
+        assertEquals(1, result.get(0).getPhones().size());
+        assertEquals("6291916565", result.get(0).getPhones().get(0).getNumber());
+
+        // Verificar os detalhes do segundo cliente
+        assertEquals("Maria Ferreira", result.get(1).getName());
+        assertEquals("12345678902", result.get(1).getDocument());
+        assertEquals(1, result.get(1).getPhones().size());
+        assertEquals("6291916566", result.get(1).getPhones().get(0).getNumber());
+
         verify(clientRepository, times(1)).findAll();
     }
+
+
 
     @Test
     public void testFindById() {
 
+        List<Phone> phones = getPhones("6291916565");
+
         Long clientId = 1L;
-        Client client = new Client(clientId, "João Ferreira", "12345678901", "Rua 1, Goiânia -GO", "10.12345", "20.67890");
+        Client client = new Client(clientId, "João Ferreira", "12345678901", "Rua 1","Serrinha" , "10.12345","20.67890",phones);
         when(clientRepository.findById(clientId)).thenReturn(Optional.of(client));
 
         ResponseEntity<Client> result = clientController.findById(clientId);
@@ -79,17 +122,27 @@ public class ClientControllerTest {
 
     @Test
     public void testCreateClient() throws Exception {
-        // Criação de um objeto Client para o teste
         Client client = new Client();
+        List<Phone> phones = getPhones("6291916565");
         client.setName("João Ferreira");
         client.setDocument("12345678900");
-        client.setAddress("Rua 1, Goiânia -GO");
+        client.setAddress("Rua 1");
+        client.setNeighborhood("Jardim Goiás");
         client.setLatitude("10.12345");
         client.setLongitude("20.67890");
+        client.setPhones(phones);
+        client.setId(1L);
 
         when(clientRepository.save(any(Client.class))).thenReturn(client);
 
-        String requestJson = "{\"name\":\"João Ferreira\",\"document\":\"12345678900\",\"address\":\"Rua 1, Goiânia -GO\",\"latitude\":\"10.12345\",\"longitude\":\"20.67890\"}";
+        String requestJson = "{\"name\":\"João Ferreira\"," +
+                "\"document\":\"12345678900\"," +
+                "\"address\":\"Rua 1\"," +
+                "\"neighborhood\":\"Jardim Goiás\"," +
+                "\"latitude\":\"10.12345\"," +
+                "\"longitude\":\"20.67890\"," +
+                "\"phones\":[{\"number\":\"6291916565\",\"type\":\"Celular\", \"_id\":\"1\"}]," +
+                "\"_id\":\"1\"}";
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/api/clients")
                 .contentType(MediaType.APPLICATION_JSON)
@@ -98,11 +151,22 @@ public class ClientControllerTest {
         ResultActions resultActions = mockMvc.perform(requestBuilder)
                 .andExpect(MockMvcResultMatchers.status().isCreated())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.name").value("João Ferreira"))
-                .andDo(MockMvcResultHandlers.print()); // Correção feita aqui
+                .andDo(MockMvcResultHandlers.print());
 
         MvcResult mvcResult = resultActions.andReturn();
         String responseJson = mvcResult.getResponse().getContentAsString();
 
         verify(clientRepository, times(1)).save(any(Client.class));
+    }
+
+    private static List<Phone> getPhones(String number) {
+        Phone phone = new Phone();
+        phone.setNumber(number);
+        phone.setType("Celular");
+        phone.setId(1L);
+
+        List<Phone> phones = new ArrayList<>();
+        phones.add(phone);
+        return phones;
     }
 }

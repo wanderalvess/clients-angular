@@ -134,4 +134,20 @@ public class ClientController {
         }
         return;
     }
+
+    private void validatePhone(String phone) {
+        String PHONE_REGEX = "\\(\\d{2}\\)\\s\\d{4,5}-\\d{4}";
+
+        if (isNullOrEmpty(phone)) {
+            throw new IllegalArgumentException("O campo de telefone é obrigatório.");
+        } else {
+            if (phone.length() < 10) {
+                throw new IllegalArgumentException("O campo de telefone deve ter tamanho mínimo de 10caracteres.");
+            } else {
+                Pattern.matches(PHONE_REGEX, phone);
+            }
+        }
+        return;
+
+    }
 }

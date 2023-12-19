@@ -20,11 +20,19 @@
       </mat-form-field>
 
       <mat-form-field   class="full-width">
-        <input matInput placeholder="Endereço Completo" formControlName="address" #address>
+        <input matInput placeholder="Endereço" formControlName="address" #address>
         <mat-hint align="end">{{ address.value.length || 0 }}</mat-hint>
         <mat-error *ngIf="form.get('address')?.invalid">{{
           getErrorMessage("address")
         }}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field   class="full-width">
+        <input matInput placeholder="Bairro" formControlName="neighborhood" #neighborhood>
+        <mat-hint align="end">{{ neighborhood.value.length || 0 }}</mat-hint>
+        <mat-error *ngIf="form.get('neighborhood')?.invalid">{{
+          getErrorMessage("neighborhood")
+          }}</mat-error>
       </mat-form-field>
 
       <mat-form-field class="full-width">

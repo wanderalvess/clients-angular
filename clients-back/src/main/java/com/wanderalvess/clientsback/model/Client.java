@@ -3,6 +3,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import  lombok.*;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -27,11 +29,17 @@ public class Client {
     @Column(name = "endereço",length = 100, nullable = false)
     private String address;
 
+    @Column(name = "Bairro", nullable = false)
+    private String neighborhood;
+
     @Column(length = 60, nullable = false)
     private String latitude;
 
     @Column(length = 60, nullable = false)
     private String longitude;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "client")
+    private List<Phone> phones;
 
 
 

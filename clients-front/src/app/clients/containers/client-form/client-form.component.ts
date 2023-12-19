@@ -34,6 +34,11 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
       Validators.minLength(5),
       Validators.maxLength(100),
       Validators.nullValidator]],
+    neighborhood: ['',
+      [Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(100),
+      Validators.nullValidator]],
     latitude: ['',
       [Validators.required,
       Validators.minLength(5),
@@ -43,7 +48,8 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
       [Validators.required,
       Validators.minLength(5),
       Validators.maxLength(100),
-      Validators.nullValidator]]
+      Validators.nullValidator]],
+    phones: this.formBuilder.array([])
   });
 
   constructor(private formBuilder: NonNullableFormBuilder,
@@ -84,8 +90,10 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
       name: client.name,
       document: client.document,
       address: client.address,
+      neighborhood: client.neighborhood,
       latitude: client.latitude,
-      longitude: client.longitude
+      longitude: client.longitude,
+      phones: client.phones
     });
   }
   ngAfterViewInit(): void {
@@ -96,8 +104,20 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
   }
 
   onSubmit() {
-    this.service.save(this.form.value)
-    .subscribe(result => this.onSucess(), error => this.onError(error));
+    const formValue = this.form.value;
+    const clientData: Partial<Client> = {
+      _id: formValue._id,
+      name: formValue.name,
+      document: formValue.document,
+      address: formValue.address,
+      neighborhood: formValue.neighborhood,
+      latitude: formValue.latitude,
+      longitude: formValue.longitude,
+      phones: formValue.phones || []
+    };
+
+    this.service.save(clientData)
+      .subscribe(result => this.onSucess(), error => this.onError(error));
   }
 
   onCancel() {
