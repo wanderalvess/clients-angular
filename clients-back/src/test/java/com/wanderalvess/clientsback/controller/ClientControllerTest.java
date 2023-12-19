@@ -3,32 +3,32 @@ package com.wanderalvess.clientsback.controller;
 import com.wanderalvess.clientsback.model.Client;
 import com.wanderalvess.clientsback.model.Phone;
 import com.wanderalvess.clientsback.repository.ClientRepository;
+import com.wanderalvess.clientsback.repository.PhoneRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultActions;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class ClientControllerTest {
 
@@ -37,6 +37,9 @@ public class ClientControllerTest {
 
     @Mock
     private ClientRepository clientRepository;
+
+    @Mock
+    private PhoneRepository phoneRepository;
 
     private MockMvc mockMvc;
 
@@ -50,7 +53,7 @@ public class ClientControllerTest {
     public void testList() {
         List<Client> clients = new ArrayList<>();
 
-        List<Phone> phones1 = getPhones("6291916565");
+        List<Phone> phones1 = getPhones("(62) 99898-6969");
 
         Client client1 = new Client();
         client1.setId(1L);
@@ -64,7 +67,7 @@ public class ClientControllerTest {
 
         clients.add(client1);
 
-        List<Phone> phones2 = getPhones("6291916566");
+        List<Phone> phones2 = getPhones("(62) 99898-6969");
 
         Client client2 = new Client();
         client2.setId(2L);
@@ -89,13 +92,13 @@ public class ClientControllerTest {
         assertEquals("João Ferreira", result.get(0).getName());
         assertEquals("12345678901", result.get(0).getDocument());
         assertEquals(1, result.get(0).getPhones().size());
-        assertEquals("6291916565", result.get(0).getPhones().get(0).getNumber());
+        assertEquals("(62) 99898-6969", result.get(0).getPhones().get(0).getNumber());
 
         // Verificar os detalhes do segundo cliente
         assertEquals("Maria Ferreira", result.get(1).getName());
         assertEquals("12345678902", result.get(1).getDocument());
         assertEquals(1, result.get(1).getPhones().size());
-        assertEquals("6291916566", result.get(1).getPhones().get(0).getNumber());
+        assertEquals("(62) 99898-6969", result.get(1).getPhones().get(0).getNumber());
 
         verify(clientRepository, times(1)).findAll();
     }
@@ -105,7 +108,7 @@ public class ClientControllerTest {
     @Test
     public void testFindById() {
 
-        List<Phone> phones = getPhones("6291916565");
+        List<Phone> phones = getPhones("(62) 99898-6969");
 
         Long clientId = 1L;
         Client client = new Client(clientId, "João Ferreira", "12345678901", "Rua 1","Serrinha" , "10.12345","20.67890",phones);
@@ -123,7 +126,7 @@ public class ClientControllerTest {
     @Test
     public void testCreateClient() throws Exception {
         Client client = new Client();
-        List<Phone> phones = getPhones("6291916565");
+        List<Phone> phones = getPhones("(62) 99898-6969");
         client.setName("João Ferreira");
         client.setDocument("12345678900");
         client.setAddress("Rua 1");
@@ -141,7 +144,7 @@ public class ClientControllerTest {
                 "\"neighborhood\":\"Jardim Goiás\"," +
                 "\"latitude\":\"10.12345\"," +
                 "\"longitude\":\"20.67890\"," +
-                "\"phones\":[{\"number\":\"6291916565\",\"type\":\"Celular\", \"_id\":\"1\"}]," +
+                "\"phones\":[{\"number\":\"(62) 99898-6969\", \"_id\":\"1\"}]," +
                 "\"_id\":\"1\"}";
 
         RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/api/clients")
@@ -162,7 +165,6 @@ public class ClientControllerTest {
     private static List<Phone> getPhones(String number) {
         Phone phone = new Phone();
         phone.setNumber(number);
-        phone.setType("Celular");
         phone.setId(1L);
 
         List<Phone> phones = new ArrayList<>();

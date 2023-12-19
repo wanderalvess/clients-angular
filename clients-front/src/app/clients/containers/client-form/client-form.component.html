@@ -51,6 +51,24 @@
         }}</mat-error>
       </mat-form-field>
 
+      <div formArrayName="phones">
+        <div *ngFor="let phoneControl of phonesArray.controls; let i = index">
+          <mat-form-field class="full-width">
+            <input matInput
+                   [placeholder]="'Telefone ' + (i + 1)"
+                   [formControl]="getPhoneControl(i)"
+                   (input)="onPhoneInput()">
+            <mat-error *ngIf="getPhoneControl(i).invalid">{{ getErrorMessage('phones') }}</mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+
+
+      <!-- Botão para adicionar mais telefones -->
+      <button mat-raised-button color="primary" (click)="addPhone()">Adicionar Telefone</button>
+
+
     </form>
   </mat-card-content>
 

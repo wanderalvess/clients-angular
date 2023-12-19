@@ -21,10 +21,13 @@ public class Phone {
     @Column(name = "numero", nullable = false)
     private String number;
 
-    @Column(name = "tipo", nullable = false)
-    private String type;
+
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "client_id", nullable = false)
     private Client client;
+
+    public Phone(String number) {
+        this.number = number;
+    }
 }

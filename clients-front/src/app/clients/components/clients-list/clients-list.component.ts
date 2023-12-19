@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { latLng, MapOptions, marker, tileLayer } from 'leaflet';
 
-
 import { Client } from '../../model/client';
 
 

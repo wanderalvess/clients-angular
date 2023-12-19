@@ -41,11 +41,16 @@
     <mat-cell *matCellDef="let client"> {{client.longitude}} </mat-cell>
   </ng-container>
 
-  <!-- Longitude Column -->
+  <!-- Phones Column -->
   <ng-container matColumnDef="phones">
     <mat-header-cell *matHeaderCellDef> Telefone </mat-header-cell>
-    <mat-cell *matCellDef="let client"> {{client.phones}} </mat-cell>
+    <mat-cell *matCellDef="let client">
+      <ng-container *ngFor="let phone of client.phones">
+        {{ phone.number }}<br>
+      </ng-container>
+    </mat-cell>
   </ng-container>
+
 
   <!-- Actions Column -->
   <ng-container matColumnDef="actions">
@@ -62,10 +67,9 @@
         <mat-icon (click)="onEdit(client)">edit</mat-icon>
       </button>
 
-      <button mat-icon-button color="warn" aria-label="Remover Curso">
+      <button mat-icon-button color="warn" aria-label="Remover Cliente">
         <mat-icon (click)="onDelete(client)">delete</mat-icon>
       </button>
-
     </mat-cell>
   </ng-container>
 

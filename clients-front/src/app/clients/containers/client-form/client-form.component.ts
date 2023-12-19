@@ -1,13 +1,15 @@
 import { MapComponent } from '../../../../app/shared/components/map/map.component';
 import { Location } from '@angular/common';
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import { NonNullableFormBuilder, Validators, FormControl } from '@angular/forms';
+import {NonNullableFormBuilder, Validators, FormControl, FormArray} from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
+
 import { Client } from '../../model/client';
 import { ClientsService } from '../../services/clients.service';
+import {Phone} from "../../model/phone";
 
 @Component({
   selector: 'app-client-form',
@@ -70,6 +72,24 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
     }
   }
 
+  onPhoneInput() {
+    const phonesControl = this.form.get('phones');
+    if (phonesControl && Array.isArray(phonesControl.value)) {
+      const formattedPhones = phonesControl.value.map((phones: string) => this.formatPhone(phones));
+      phonesControl.setValue(formattedPhones);
+    }
+  }
+
+  formatPhone(value: string): string  {
+    value = value.replace(/\D/g, '');
+    return value.replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3');
+  }
+
+  getPhoneControl(index: number): FormControl {
+    return this.phonesArray.at(index) as FormControl;
+  }
+
+
   formatDocument(value: string): string {
     value = value.replace(/\D/g, '');
 
@@ -113,11 +133,13 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
       neighborhood: formValue.neighborhood,
       latitude: formValue.latitude,
       longitude: formValue.longitude,
-      phones: formValue.phones || []
+      phones: (formValue.phones || []) as Phone[]
     };
 
-    this.service.save(clientData)
-      .subscribe(result => this.onSucess(), error => this.onError(error));
+    this.service.save(clientData).subscribe({
+      next: () => this.onSucess(),
+      error: error => this.onError(error)
+    });
   }
 
   onCancel() {
@@ -136,6 +158,16 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
     }
     this.snackBar.open(errorMessage, '', { duration: 4000 });
   }
+
+  addPhone() {
+    const control = this.form.get('phones') as FormArray;
+    control.push(this.formBuilder.control(''));
+  }
+
+  get phonesArray() {
+    return this.form.get('phones') as FormArray;
+  }
+
 
   getErrorMessage(fieldName: string) {
     const field = this.form.get(fieldName);
