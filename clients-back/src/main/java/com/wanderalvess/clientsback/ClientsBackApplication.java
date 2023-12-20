@@ -27,10 +27,10 @@ public class ClientsBackApplication {
 			clientRepository.deleteAll();
 
 			// Criar clientes e telefones de exemplo
-			Client client1 = createClient("Exemplo Cliente ", "11.111.111/0001-11",
+			Client client1 = createClient("Exemplo Empresa ", "83.899.256/0001-00",
 					"Av. Dep. Jamel Cecílio", "Jardim Goiás", "(62)99898-6969",
 					 "-16.70435700806895", "-49.24028957783302");
-			Client client2 = createClient("Exemplo Empresa", "222.222.222-22", "Rua Exemplo, 123",
+			Client client2 = createClient("Exemplo Cliente", "894.612.300-10", "Rua Exemplo, 123",
 					"Bairro Exemplo", "(62)93333-6969",
 					 "-16.70500000000000", "-49.24100000000000");
 

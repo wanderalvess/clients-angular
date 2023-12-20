@@ -58,7 +58,7 @@ public class ClientControllerTest {
         Client client1 = new Client();
         client1.setId(1L);
         client1.setName("João Ferreira");
-        client1.setDocument("12345678901");
+        client1.setDocument("48690209042");
         client1.setAddress("Rua 1");
         client1.setNeighborhood("Serrinha");
         client1.setLatitude("10.12345");
@@ -72,7 +72,7 @@ public class ClientControllerTest {
         Client client2 = new Client();
         client2.setId(2L);
         client2.setName("Maria Ferreira");
-        client2.setDocument("12345678902");
+        client2.setDocument("77485980025");
         client2.setAddress("Rua 2");
         client2.setNeighborhood("Bairro 2");
         client2.setLatitude("20.12345");
@@ -90,13 +90,13 @@ public class ClientControllerTest {
 
         // Verificar os detalhes do primeiro cliente
         assertEquals("João Ferreira", result.get(0).getName());
-        assertEquals("12345678901", result.get(0).getDocument());
+        assertEquals("48690209042", result.get(0).getDocument());
         assertEquals(1, result.get(0).getPhones().size());
         assertEquals("(62) 99898-6969", result.get(0).getPhones().get(0).getNumber());
 
         // Verificar os detalhes do segundo cliente
         assertEquals("Maria Ferreira", result.get(1).getName());
-        assertEquals("12345678902", result.get(1).getDocument());
+        assertEquals("77485980025", result.get(1).getDocument());
         assertEquals(1, result.get(1).getPhones().size());
         assertEquals("(62) 99898-6969", result.get(1).getPhones().get(0).getNumber());
 
@@ -111,7 +111,7 @@ public class ClientControllerTest {
         List<Phone> phones = getPhones("(62) 99898-6969");
 
         Long clientId = 1L;
-        Client client = new Client(clientId, "João Ferreira", "12345678901", "Rua 1","Serrinha" , "10.12345","20.67890",phones);
+        Client client = new Client(clientId, "João Ferreira", "48690209042", "Rua 1","Serrinha" , "10.12345","20.67890",phones);
         when(clientRepository.findById(clientId)).thenReturn(Optional.of(client));
 
         ResponseEntity<Client> result = clientController.findById(clientId);
@@ -128,7 +128,7 @@ public class ClientControllerTest {
         Client client = new Client();
         List<Phone> phones = getPhones("(62) 99898-6969");
         client.setName("João Ferreira");
-        client.setDocument("12345678900");
+        client.setDocument("48690209042");
         client.setAddress("Rua 1");
         client.setNeighborhood("Jardim Goiás");
         client.setLatitude("10.12345");
@@ -139,7 +139,7 @@ public class ClientControllerTest {
         when(clientRepository.save(any(Client.class))).thenReturn(client);
 
         String requestJson = "{\"name\":\"João Ferreira\"," +
-                "\"document\":\"12345678900\"," +
+                "\"document\":\"48690209042\"," +
                 "\"address\":\"Rua 1\"," +
                 "\"neighborhood\":\"Jardim Goiás\"," +
                 "\"latitude\":\"10.12345\"," +

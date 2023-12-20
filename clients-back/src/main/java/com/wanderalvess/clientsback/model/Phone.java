@@ -21,7 +21,6 @@ public class Phone {
     @Column(name = "numero", nullable = false)
     private String number;
 
-
     @ManyToOne
     @JsonIgnore
     @JoinColumn(name = "client_id", nullable = false)

@@ -1,4 +1,4 @@
-import { MapComponent } from '../../../../app/shared/components/map/map.component';
+import { MapComponent } from '../../../shared/components/map/map.component';
 import { Location } from '@angular/common';
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {NonNullableFormBuilder, Validators, FormControl, FormArray} from '@angular/forms';
@@ -23,7 +23,7 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
     _id: [''],
     name: ['',
       [Validators.required,
-      Validators.minLength(4),
+      Validators.minLength(10),
       Validators.maxLength(100),
       Validators.nullValidator]],
     document: ['',
@@ -41,16 +41,8 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
       Validators.minLength(5),
       Validators.maxLength(100),
       Validators.nullValidator]],
-    latitude: ['',
-      [Validators.required,
-      Validators.minLength(5),
-      Validators.maxLength(100),
-      Validators.nullValidator]],
-    longitude: ['',
-      [Validators.required,
-      Validators.minLength(5),
-      Validators.maxLength(100),
-      Validators.nullValidator]],
+    latitude: ['',],
+    longitude: ['',],
     phones: this.formBuilder.array([])
   });
 
@@ -177,7 +169,7 @@ export class ClientFormComponent implements OnInit, AfterViewInit {
     }
 
     if (field?.hasError('minlength')) {
-      const requiredLength: number = field.errors ? field.errors['minlength']['requiredLength'] : 5;
+      const requiredLength: number = field.errors ? field.errors['minlength']['requiredLength'] : 10;
       return `Tamanho mínimo precisa ser de ${requiredLength} caracteres.`;
     }
 
