@@ -161,17 +161,17 @@ Plano de Teste
 
 ### ***Listar Clientes:***
 - Após build dos projetos, a tela inicial será mostrado os clientes cadastrados.
-![initial](https://user-images.githubusercontent.com/74334991/232462255-1321ee26-adce-4798-980a-ba4876783636.png)
+![clients](https://github.com/wanderalvess/clients-angular/assets/74334991/51985494-a7a4-4642-b28f-3b4e4d28ca46)
 
 ### ***Ações:***
 - No botão de adicionar (icone de +) do lado direito, será possível cadastrar novos clientes.
-![register](https://user-images.githubusercontent.com/74334991/232462326-ddbfbe81-7ffc-4ec8-99a4-e8097ed3c633.png)
+![register](https://github.com/wanderalvess/clients-angular/assets/74334991/ff3fe30e-6239-4009-8fae-b4fd29d3ca40)
 
 - No Botão de excluir (icone de lixeira) do lado direito das informações do cliente, será possível excluir um cadastro de cliente.
-![remove](https://user-images.githubusercontent.com/74334991/232462856-d548ad50-3795-444f-a48a-095b5a825394.png)
+![delete](https://github.com/wanderalvess/clients-angular/assets/74334991/b74e85b6-88f7-4f0a-823a-575ea2300014)
 
 - No Botão de editar (icone de lápis) do lado direito das informações do cliente, será possível editar um cadastro de cliente.
-![edit](https://user-images.githubusercontent.com/74334991/232462387-9c48c12b-3798-4c61-af1e-34f6f5d91cdb.png)
+![edit](https://github.com/wanderalvess/clients-angular/assets/74334991/6ca2ffe9-37ec-4230-b0c6-e3ec494b870c)
 
 - No botão de salvar, na tela de cadastro de cliente, será possível salvar um novo cadastro ou que está sendo editado.
 
@@ -208,7 +208,7 @@ Plano de Teste
 ![validation](https://user-images.githubusercontent.com/74334991/232464084-25f37b47-5613-4fe3-ba09-d1ca8d5bac76.png)
 
 - OS testes unitários para o backend estão localizados na pasta src/test e pode ser acessado através de uma ide:
-![testpng](https://user-images.githubusercontent.com/74334991/232580568-b5d32b5a-2e17-4ac8-93c0-5b44077765ca.png)
+![teste](https://github.com/wanderalvess/clients-angular/assets/74334991/24254b0b-5726-4ae1-9e24-6ef8ff5b6077)
 
 
 
