@@ -128,6 +128,56 @@ Projeto consulta e cadastro de Clientes
 	
 		http://localhost:4200
 
+# Uso do json-server no Projeto
+
+Este projeto utiliza o `json-server` para simular uma API RESTful com o objetivo de facilitar o desenvolvimento e testes de aplicações front-end sem a necessidade de um back-end real.
+
+## Pré-requisitos
+
+- Node.js instalado.
+- `json-server` instalado globalmente ou como dependência de desenvolvimento.
+
+## Configuração
+
+### Estrutura do `db.json`
+
+O arquivo `db.json` é usado para armazenar os dados simulados. A estrutura atual é:
+
+```json
+{
+  "client": [
+    {
+      "name": "João Ferreira",
+      "document": "48690209042",
+      "address": "Rua 1",
+      "neighborhood": "Jardim Goiás",
+      "latitude": "10.12345",
+      "longitude": "20.67890",
+      "phones": [
+        {
+          "number": "(62) 99898-6969",
+          "_id": 1
+        }
+      ],
+      "_id": 1
+    }
+  ]
+}
+```
+
+## Executando o json-server
+Para iniciar o json-server e usar o db.json como banco de dados, execute o seguinte comando:
+
+	json-server --watch db.json
+
+Isso iniciará o servidor na porta padrão 3000.
+
+## Endpoints Disponíveis
+	GET /client: Retorna todos os clientes.
+	GET /client/{id}: Retorna um cliente específico com o ID fornecido.
+	POST /client: Adiciona um novo cliente.
+	PUT /client/{id}: Atualiza um cliente específico.
+	DELETE /client/{id}: Remove um cliente específico.
 
 # ***Informações Sobre o Front-End:***
 

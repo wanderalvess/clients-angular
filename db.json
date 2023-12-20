@@ -1,0 +1,19 @@
+{
+  "client": [
+    {
+      "name": "João Ferreira",
+      "document": "48690209042",
+      "address": "Rua 1",
+      "neighborhood": "Jardim Goiás",
+      "latitude": "10.12345",
+      "longitude": "20.67890",
+      "phones": [
+        {
+          "number": "(62) 99898-6969",
+          "_id": 1
+        }
+      ],
+      "_id": 1
+    }
+  ]
+}
