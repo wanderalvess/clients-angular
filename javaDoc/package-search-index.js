@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.wanderalvess.clientsback"},{"l":"com.wanderalvess.clientsback.controller"},{"l":"com.wanderalvess.clientsback.model"},{"l":"com.wanderalvess.clientsback.repository"},{"l":"com.wanderalvess.clientsback.service"},{"l":"com.wanderalvess.clientsback.util"}]

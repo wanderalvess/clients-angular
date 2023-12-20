@@ -10,7 +10,7 @@ Projeto consulta e cadastro de Clientes
 ## Baixar o projeto:
 - Git clone:
 
-		git clone https://github.com/wanderalvess/clients-angular-spring.git
+		git clone https://github.com/wanderalvess/clients-angular
 		
 ## Criar as imagens:
 - ir até a pasta clients-back: 
@@ -20,6 +20,10 @@ Projeto consulta e cadastro de Clientes
 - executar no terminal: 
 
 		docker build -t wanderalvess/clients-back:2.0.0 .
+
+- voltar para pasta raiz:
+
+		cd ..
 
 - ir até a pasta clients-front: 
 
@@ -45,12 +49,12 @@ Projeto consulta e cadastro de Clientes
 
 		http://localhost:8081/clients
 	
-# ***2° Forma de executar esse projeto baixando o repositório***
+# ***Outras formas de executar esse projeto***
 	
 ## Baixar projeto:
 - Git clone:
 
-		git clone https://github.com/wanderalvess/clients-angular-spring.git
+		git clone https://github.com/wanderalvess/clients-angular
 	
 ## Formas de Build no Back-End
 
@@ -88,7 +92,7 @@ Projeto consulta e cadastro de Clientes
 	
 			http://localhost:8080/api/clients 
     
-## Formas de Build no Front-End
+## Formas de Build do Front-End
 
 ### Build Docker
 - ***Criar imagem e executar***
@@ -135,16 +139,20 @@ Projeto consulta e cadastro de Clientes
 	- Package Manager: npm 6.14.17
 
 
-## Documentação via Compodoc
+## Documentação Front-End via Compodoc
 
 - ***Subir serve de documentação***
-	- executar no terminal: 
-	
-			npm run serve-docs
-			
-	- Server Documentação no caminho: 
-	
-			http://127.0.0.1:9000
+	- ir até a pasta clients-front:
+     
+  			cd ./clients-front
+
+    - executar no terminal:
+
+            npm run serve-docs
+
+    - Server Documentação no caminho:
+
+            http://127.0.0.1:9000
 
 
 # ***Informações Sobre o Back-End:***
@@ -154,6 +162,15 @@ Projeto consulta e cadastro de Clientes
 	- Java: 11.0.9
 	- Apache Maven: 3.8.6
 	- SpringBot: 2.7.5
+
+- ***Documentação***
+	- ir até a pasta javaDoc:
+
+	  	cd ./javaDoc
+
+	- abrir arquivo com browser:
+
+	        index.html
   
 
 Plano de Teste
@@ -188,7 +205,7 @@ Plano de Teste
 
 - Validações novos cadastros:
 	- Nome:
-		- Tamanho mínimo precisa ser de 4 caracteres.
+		- Tamanho mínimo precisa ser de 10 caracteres.
 		- Tamanho máximo excedido de 100 caracteres.
 		- Campo obrigatório
 	- Documento: 
@@ -199,11 +216,11 @@ Plano de Teste
 		- Tamanho mínimo precisa ser de 5 caracteres.
 		- Campo obrigatório
 	- Longitude:
-		- Tamanho mínimo precisa ser de 5 caracteres.
-		- Campo obrigatório
+		- Campo não obrigatório
 	- Latitude:
-		- Tamanho mínimo precisa ser de 5 caracteres.
-		- Campo obrigatório
+		- Campo não obrigatório
+    - Telefone
+        - Campo obrigatório 
 
 ![validation](https://user-images.githubusercontent.com/74334991/232464084-25f37b47-5613-4fe3-ba09-d1ca8d5bac76.png)
 

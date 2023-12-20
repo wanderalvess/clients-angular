@@ -1,0 +1,6 @@
+com.wanderalvess.clientsback
+com.wanderalvess.clientsback.controller
+com.wanderalvess.clientsback.model
+com.wanderalvess.clientsback.repository
+com.wanderalvess.clientsback.service
+com.wanderalvess.clientsback.util
