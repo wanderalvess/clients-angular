@@ -52,7 +52,7 @@ public class ClientController extends util {
     public ResponseEntity<Client> update(@PathVariable Long id,
                                          @RequestBody Client client) {
         validateName(client.getName());
-        validateDocument(client.getDocument(), clientRepository);
+       // validateDocument(client.getDocument(), clientRepository);
         validateAddress(client.getAddress());
         validatePhone(client.getPhones(), phoneRepository);
 
