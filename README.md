@@ -1,55 +1,75 @@
-Projeto consulta e cadastro de Clientes
+Documentação do Projeto: Consulta e Cadastro de Clientes
 ======
 
 ### O projeto "Consulta e Cadastro de Clientes" é uma aplicação web desenvolvida utilizando Angular, Spring Boot e Maven. Ele permite cadastrar, listar, editar e excluir clientes em um sistema.
 
 # ***1° Forma de executar esse projeto no Docker***		
 		
-# Pode ser usado o Docker Compose, para iniciar todos ao mesmo tempo
+# Utilizando Docker Compose para Iniciar Serviços Simultaneamente
+
+## Pré-requisitos
+
+Docker instalado na sua máquina.
+
+## Baixando as Imagens do Docker Hub
+   Para baixar as imagens Docker do Docker Hub, execute os seguintes comandos no terminal:
+
+## Baixe a imagem do backend
+	docker pull wanderalvess/clients-back:1.0.0
+
+## Baixe a imagem do frontend
+	docker pull wanderalvess/clients-front:1.0.0
+
+## Executando as Imagens
+Após baixar as imagens, você pode executá-las usando os comandos abaixo:
+
+	docker-compose up
+
+# ***2° Forma de executar esse projeto no Docker***
 
 ## Baixar o projeto:
 - Git clone:
 
-		git clone https://github.com/wanderalvess/clients-angular
-		
+  	git clone https://github.com/wanderalvess/clients-angular
+
 ## Criar as imagens:
-- ir até a pasta clients-back: 
+- ir até a pasta clients-back:
 
-		cd ./clients-back
+  	cd ./clients-back
 
-- executar no terminal: 
+- executar no terminal:
 
-		docker build -t wanderalvess/clients-back:2.0.0 .
-
-- voltar para pasta raiz:
-
-		cd ..
-
-- ir até a pasta clients-front: 
-
-		cd ./clients-front
-
-- executar no terminal: 
-
-		npm install
-
-- executar no terminal: 
-
-		docker build -t wanderalvess/clients-front:2.0.0 .
+  	docker build -t wanderalvess/clients-back:1.0.0 
 
 - voltar para pasta raiz:
 
-		cd ..
+  	cd ..
 
-- executar no terminal: 
+- ir até a pasta clients-front:
 
-		docker-compose up
-		
+  	cd ./clients-front
+
+- executar no terminal:
+
+  	npm install
+
+- executar no terminal:
+
+  	docker build -t wanderalvess/clients-front:1.0.0 
+
+- voltar para pasta raiz:
+
+  	cd ..
+
+- executar no terminal:
+
+  	docker-compose up
+
 - Container será iniciado no caminho:
 
-		http://localhost:8081/clients
-	
-# ***Outras formas de executar esse projeto***
+  	http://localhost:8081/clients
+
+# ***Outras Formas de executar esse projeto***
 	
 ## Baixar projeto:
 - Git clone:
@@ -66,11 +86,11 @@ Projeto consulta e cadastro de Clientes
 
 	- executar no terminal: 
 	
-			docker build -t wanderalvess/clients-back:2.0.0 .
+			docker build -t wanderalvess/clients-back:1.0.0 .
 		
 	- executar no terminal: 
 	
-			docker run -p 8080:8080 wanderalvess/clients-back:2.0.0
+			docker run -p 8080:8080 wanderalvess/clients-back:1.0.0
   
     - Container será iniciado no caminho:
 
@@ -113,20 +133,16 @@ Projeto consulta e cadastro de Clientes
 
 - ***Executar aplicação***
 	- ir até a pasta clients-front:
-	
-		cd ./clients-front
+      - 		cd ./clients-front
 			
     - executar no terminal:
-	
-		npm install
+      - 		npm install
 			
     - executar no terminal:
-		
-		npm run start
+      - 		npm run start
 
     - Serve será iniciado no caminho:
-	
-		http://localhost:4200
+      - 		http://localhost:4200
 
 # Uso do json-server no Projeto
 
